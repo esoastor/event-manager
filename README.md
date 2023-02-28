@@ -21,8 +21,26 @@ $dispatcher->addListeners('success', [
 
 ....
 
-
 $event = MyEvents\NewUserRegistered($userInfo);
+
 $dispatcher->dispatch('success', $event);
 
 ```
+
+## strict event names ##
+If you wish to use only previosly declared events types, you can use *strict names mode*
+For this you must customise you listener provider before creating dispatcher with it
+
+```
+$provider = new EventManager\ListenerProvider(['success', 'error']);
+$provider->setEventNamesMode(true);
+
+$dispatcher = new EventDispacher($provider);
+
+```
+### adding more event names through $dispatcher ###
+```
+$dispatcher->addEventNames(['start', 'finish]);
+```
+
+TODO: change event names to event types
