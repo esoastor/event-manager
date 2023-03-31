@@ -28,12 +28,12 @@ $dispatcher->dispatch('success', $event);
 ```
 
 ## strict event names ##
-If you wish to use only previosly declared events types, you can use *strict names mode*
+If you wish to use only previosly declared events types, you can use *strict names mode*.
 For this you must customise you listener provider before creating dispatcher with it
 
 ```
 $provider = new EventManager\ListenerProvider(['success', 'error']);
-$provider->setEventNamesMode(true);
+$provider->setEventNamesMode(EventManager\ListenerProvider::STRICT);
 
 $dispatcher = new EventDispacher($provider);
 
