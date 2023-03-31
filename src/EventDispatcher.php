@@ -1,6 +1,6 @@
 <?php
 
-namespace EventManager;
+namespace Esoastor\EventManager;
 
 class EventDispatcher
 {

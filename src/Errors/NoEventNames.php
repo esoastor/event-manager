@@ -1,5 +1,5 @@
 <?php
-namespace EventManager\Errors;
+namespace Esoastor\EventManager\Errors;
 
 class NoEventNames extends \Exception
 {
