@@ -1,0 +1,8 @@
+{
+    "name": "esoastor/event-manager",
+    "autoload": {
+        "psr-4": {
+            "Esoastor\\EventManager\\": "src/"
+        }
+    }
+}
