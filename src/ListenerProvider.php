@@ -7,17 +7,17 @@ class ListenerProvider
     public const STRICT = true;
     public const LOOSE = false;
 
-    private bool $useStrictEventNames = false;
+    private bool $useStrictEventTypes = false;
     private array $listeners = [];
     
-    public function __construct(private array $eventNames = [])
+    public function __construct(private array $eventTypes = [])
     {
     }
 
     public function addListeners(string $eventName, array $listeners): void
     {
-        if ($this->useStrictEventNames && !isset($this->eventNames[$eventName])) {
-            throw new Errors\NoEventNames();
+        if ($this->useStrictEventTypes && !isset($this->eventTypes[$eventName])) {
+            throw new Errors\NoEventTypes();
         }
 
         $this->listeners[$eventName] = array_merge($this->listeners[$eventName], $listeners);
@@ -25,19 +25,19 @@ class ListenerProvider
 
     public function getListenersForEvent(string $eventName): iterable
     {
-        if ($this->useStrictEventNames && !isset($this->eventNames[$eventName])) {
-            throw new Errors\NoEventNames();
+        if ($this->useStrictEventTypes && !isset($this->eventTypes[$eventName])) {
+            throw new Errors\NoEventTypes();
         }
         return isset($this->listeners[$eventName]) ? $this->listeners[$eventName] : [];
     }
 
-    public function setEventNamesMode(bool $mode): void
+    public function setEventTypesMode(bool $mode): void
     {
-        $this->useStrictEventNames = $mode;
+        $this->useStrictEventTypes = $mode;
     }
 
-    public function addEventNames(array $eventNames): void
+    public function addEventTypes(array $eventTypes): void
     {
-        $this->eventNames = array_merge($this->eventNames, $eventNames);
+        $this->eventTypes = array_merge($this->eventTypes, $eventTypes);
     }
 }

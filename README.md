@@ -33,14 +33,12 @@ For this you must customise you listener provider before creating dispatcher wit
 
 ```
 $provider = new EventManager\ListenerProvider(['success', 'error']);
-$provider->setEventNamesMode(EventManager\ListenerProvider::STRICT);
+$provider->setEventTypesMode(EventManager\ListenerProvider::STRICT);
 
 $dispatcher = new EventDispacher($provider);
 
 ```
 ### adding more event names through $dispatcher ###
 ```
-$dispatcher->addEventNames(['start', 'finish]);
+$dispatcher->addEventTypes(['start', 'finish]);
 ```
-
-TODO: change event names to event types

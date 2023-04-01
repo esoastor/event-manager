@@ -21,9 +21,9 @@ class EventDispatcher
         $this->listenerProvider->addListeners($eventName, $listeners);
     }
 
-    public function addEventNames(array $eventNames): void
+    public function addEventTypes(array $eventTypes): void
     {
-        $this->listenerProvider->addEventNames($eventNames);
+        $this->listenerProvider->addEventTypes($eventTypes);
     }
 
     public function dispatch(string $eventName, object $event): void
