@@ -20,7 +20,7 @@ class ListenerProvider
             throw new Errors\NoEventTypes();
         }
 
-        $this->listeners[$eventName] = array_merge($this->listeners[$eventName], $listeners);
+        $this->listeners[$eventName] = array_merge($this->listeners[$eventName] ?? [], $listeners);
     }
 
     public function getListenersForEvent(string $eventName): iterable

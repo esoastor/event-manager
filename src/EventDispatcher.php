@@ -31,7 +31,7 @@ class EventDispatcher
         $listeners = $this->listenerProvider->getListenersForEvent($eventName);
         foreach ($listeners as $listener)
         {
-            $listener->handle($event);
+            (new $listener)->handle($event);
         }
     }
 }
